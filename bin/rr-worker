@@ -72,6 +72,8 @@ $app = new ApplicationAlias(
     InstalledVersions::getPrettyVersion('roadrunner-php/laravel-bridge') ?? 'unknown',
 );
 
-$app->add(new StartCommand($basePath));
+if ($app instanceof \Symfony\Component\Console\Application) {
+    $app->add($command);
+}
 
 $app->run();

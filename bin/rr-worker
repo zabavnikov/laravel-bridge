@@ -72,7 +72,7 @@ $app = new ApplicationAlias(
     InstalledVersions::getPrettyVersion('roadrunner-php/laravel-bridge') ?? 'unknown',
 );
 
-if ($app instanceof \Symfony\Component\Console\Application) {
+if (method_exists($app, 'add')) {
     $app->add($command);
 }
 
